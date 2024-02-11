@@ -4,19 +4,37 @@ using namespace std;
 
 void getComblll(string p,int i,int k,int n,int sum)
 {
-    if(i > n) return;
-    if(sum == n && p.size() <= k) 
+    if(sum > n || i > n || i == 10) return;
+
+    if(p.size() == k)
     {
-        cout << p;
+        if(sum == n) 
+        {
+            cout << p << endl; 
+        }  
+
         return;
     }
+
+    //shuffle the conditions
+    // if(sum == n)
+    // {
+    //     if(p.size() == k) 
+    //     {
+    //         cout << p << endl; 
+    //     }  
+
+    //     return;
+    // }
+
     if(p.size() > k) return;
 
     sum += i;
-    getComblll(p + (to_string(i)),++i,k,n,sum);
+    getComblll(p + (to_string(i)),i + 1,k,n,sum);
 
     sum -= i;
-    getComblll(p,++i,k,n,sum);
+    // p.pop_back();
+    getComblll(p,i + 1,k,n,sum);
 
 }
 
