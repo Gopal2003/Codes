@@ -42,6 +42,6 @@ void getComblll(string p,int i,int k,int n,int sum)
 
 int main()
 {
-    getComblll("",1,2,5,0);
+    getComblll("",1,9,45,0);
     return 0;
 }
