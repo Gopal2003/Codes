@@ -71,6 +71,7 @@ public class CLASS_1 {
 
 
 
+    /* 
     public static int maze_rec(int i,int j,int n,int m)
     {
         if(i == n || j == m) return 0;
@@ -136,10 +137,76 @@ public class CLASS_1 {
         // System.out.println(maze_memo(0,0,n,m,dp));
         System.out.println(maze_tabu(0,0,n,m,dp));
     }
+    */
+
+
+    public static int dice_rec(int reqSum)
+    {
+        if(reqSum == 0)
+        {
+            return 1;
+        } 
+        
+        int ways = 0;
+        for(int j = 1; j < 6 && reqSum - j >= 0; j++)
+        {
+            ways += dice_rec( reqSum - j);
+        }
+    
+        return ways;
+    }
+
+    public static int dice_memo(int reqSum,int[] dp)
+    {
+        if(reqSum == 0)
+        {
+            return dp[reqSum] = 1;
+        } 
+        if(dp[reqSum] != 0) return dp[reqSum];
+
+        int ways = 0;
+        for(int j = 1; j < 6 && reqSum - j >= 0; j++)
+        {
+            ways += dice_memo( reqSum - j,dp);
+        }
+    
+        return dp[reqSum] = ways;
+    }
+
+    public static int dice_tabu(int SP,int reqSum,int[] dp)
+    {
+        for(int sp = reqSum; sp >= 0; sp--)
+        {
+            if(sp == reqSum)
+            {
+                dp[sp] = 1;
+                continue;
+            }
+
+            int count = 0;
+            for(int dice = 1; dice <= 6 && sp + dice <= reqSum; dice++)
+            {
+                count += dp[sp + dice];
+            }
+            dp[sp] = count;
+        }
+
+        return dp[SP];
+    }
+
+    public static void dice()
+    {
+        int dp[] = new int[10 + 1];
+        // System.out.println(dice_rec(5));
+        // System.out.println(dice_memo(10,dp));
+        System.out.println(dice_tabu(0,10,dp));
+    }
     public static void main(String[] args) {
         // fibo();
 
 
-        maze();
+        // maze();
+
+        dice();
     }
 }
