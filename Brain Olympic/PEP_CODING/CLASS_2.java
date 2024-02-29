@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class CLASS_2 {
     public static void main(String[] args) {
         int arr[][] = { { 1, 3, 1, 5 },
@@ -6,12 +8,20 @@ public class CLASS_2 {
                 { 0, 6, 1, 2 } };
 
         int n = arr.length, m = arr[0].length;
-        int maxGold = 0;
+
+        int maxGoldT = 0;
+        int [][]dp = new int[n][m];
+        
+        for(int[] d : dp)
+        {
+            Arrays.fill(d,-1);
+        }
 
         for (int r = 0; r < n; r++) {
-            maxGold = Math.max(maxGold, goldMine(r, 0, arr));
+            // maxGoldT = Math.max(maxGoldT, goldMine(r, 0, M,));
+            maxGoldT = Math.max(maxGoldT, goldMine_memo(r, 0, arr,dp));
         }
-        System.out.println(maxGold);
+        System.out.println(maxGoldT);
     }
 
     static int goldMine(int sr, int sc, int arr[][]) {
