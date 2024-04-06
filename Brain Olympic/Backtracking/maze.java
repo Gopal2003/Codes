@@ -16,11 +16,7 @@ public class maze{
     {
         for(int[] d: arr)
         {
-            for(int i = 0; i < d.length; i++)
-            {
-                System.out.print(d[i] + " ");
-            }
-            System.out.println();
+            System.out.println(Arrays.toString(d));
         }
     }
 
