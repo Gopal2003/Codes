@@ -30,4 +30,6 @@ public class Vll_InsertionSort {
 
         insertionSort(arr, currIndex + 1);
     }
+    //TC - O(n)
+    //SC - O(1)
 }
