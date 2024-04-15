@@ -3,13 +3,13 @@ import java.util.*;
 public class Xll_powerSetLexicographic {
     public static void main(String[] args)
     {
-        String str = "bcda";
+        String str = "cab";
         char arr[] = str.toCharArray();
         Arrays.sort(arr);
         String curr =  " ";
 
         // System.out.println(str);
-        // getPowerSet(new String(str),curr,-1);
+        // getPowerSet(new String(arr),curr,-1);
         getPowerSet(new String(arr),curr,0);
     }
 
@@ -33,7 +33,7 @@ public class Xll_powerSetLexicographic {
     //         curr = curr.substring(0,curr.length() - 1);
     //     }
 
-    //     return;
+    //     // return;
     // }
 
 
