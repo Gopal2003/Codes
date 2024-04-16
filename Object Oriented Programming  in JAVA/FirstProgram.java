@@ -28,15 +28,33 @@ public class FirstProgram{
         // System.out.println(Student.name);
 
         //! Testing the same using final keyword and also trying to create new instance variable which will give error due to final keyword.
-        final A Student1 = new A("Gopal",45,2345.43f);
-        System.out.println(Student1.name);
-        Student1.name = "Agarwal";
-        System.out.println(Student1.name);//We can change the attributes but not the object itself when final is declared;
+        // final A Student1 = new A("Gopal",45,2345.43f);
+        // System.out.println(Student1.name);
+        // Student1.name = "Agarwal";
+        // System.out.println(Student1.name);//We can change the attributes but not the object itself when final is declared;
         // Student1 = new A("D3Vil",34,23456.f); error as final is assigned.
+
+        Integer a = 10;
+        Integer b = 20;
+        // System.out.println(a);
+        // a = 30;
+        // System.out.println(a);
         
-
-
-
+        swap(a, b);
+        System.out.println(a + " " + b);
+        //Sapping is not happening because Integer is final.
+        
+        
+        
+        
+        
+    }
+    
+    public static void swap(Integer a,Integer b)
+    {
+        Integer temp = a;
+        a = b;
+        b = temp;
     }
 }
 
