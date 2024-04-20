@@ -2,10 +2,10 @@ public class FirstProgram{
     public static void main(String[] args)
     {
         //! Basic Commands to create an instance of class and assign the values to its attributes.
-        // A student1 = new A();
-        // student1.name = "Gopal Agarwal";
-        // student1.rolln0 = 35;
-        // student1.marks = 96.6f;
+        A student1 = new A();
+        student1.name = "Gopal Agarwal";
+        student1.rolln0 = 35;
+        student1.marks = 96.6f;
 
         // System.out.println(student1.name);
         // System.out.println(student1.rolln0);
@@ -70,10 +70,10 @@ class A{
         this.marks = marks; // this.marks = student1.marks;
     }
     
-    // A()
-    // {
-    //     this("D3ViL",90,99.8f);//Constructor calling another constructor. 
-    // }
+    A()
+    {
+        this("D3ViL",90,99.8f);//Constructor calling another constructor. 
+    }
     
     // A(String name,int rolln0,float marks)
     // {
