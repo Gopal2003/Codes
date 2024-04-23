@@ -6,11 +6,21 @@ public class Box {
     //! to access the private data of its parent class. 
     double h;
     double w;
+    // double weight;
 
     Box() {
+        super();//Object() is the root of class hierarchy.
         this.l = -1;
         this.h = -1;
         this.w = -1;
+        // this.weight = -1;
+    }
+
+    Box(Box old)
+    {
+        this.l = old.l;
+        this.h = old.h;
+        this.w = old.w;
     }
 
     Box(double l, double h, double w) {
