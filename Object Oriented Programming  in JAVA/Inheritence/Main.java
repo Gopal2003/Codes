@@ -24,7 +24,7 @@ public class Main {
         BoxWeight other = new BoxWeight(1,2,3,4);
         System.out.println(other.l + " " + other.h + " " + other.w + " " + other.weight);
 
-        Box other_2 = new BoxWeight(other);
+        Box other_2 = new BoxWeight(other);//todo: OOP3 Super keyword in YT if don't understand this concept- kk
         System.out.println(other_2.l + " " + other_2.h + " " + other_2.w);
 
 
