@@ -1,8 +1,8 @@
 public class BoxWeight extends Box {
     
-    // @Override
-    // void greetings() //! Pop error due to static
-    // {
-    //     System.out.println("Hey, I am in BoxWeight Class. Greetings!");
-    // }
+    // @Override we can't override due to static keyword.
+    static void greetings() 
+    {
+        System.out.println("Hey, I am in BoxWeight Class. Greetings!");
+    }
 }
