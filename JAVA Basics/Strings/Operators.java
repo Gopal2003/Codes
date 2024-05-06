@@ -17,6 +17,9 @@ public class Operators {
 
        n.add(4);
        System.out.println(n);
+
+       //    System.out.println(new Integer(5) + new ArrayList<>());//! Atlease one among them should be string because they are complex data type. 
+       //    System.out.println(new Integer(5) + " "+ new ArrayList<>());
         // System.out.println(Arrays.toString(arr));
 
         // Integer a = 5;
