@@ -1,4 +1,5 @@
 public class Box{
+    double weight = -2;
 
     static void greetings() 
     {
