@@ -7,6 +7,13 @@ public class Son extends Parent{
         // super(age);
         this.age = age;
     }
+
+    @Override
+    void normalMethod()
+    {
+        // super.normalMethod();
+        System.out.println("Its the normal method of Son which is overriden");
+    }
     
     @Override
     void career()

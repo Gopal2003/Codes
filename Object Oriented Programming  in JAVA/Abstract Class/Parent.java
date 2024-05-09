@@ -15,6 +15,11 @@ public abstract class Parent{
     {
         System.out.println("Hey, I have been called using class");
     }
+
+    void normalMethod()
+    {
+        System.out.println("I am a normal method!!");
+    }
     abstract void career();
     abstract void partner();
 }

@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Son s = new Son(23);
         s.career();
+        s.normalMethod();
         System.out.println(s.age);
 
         Daughter d = new Daughter(21);
@@ -27,5 +28,7 @@ public class Main {
         //! the interpreter demands
 
         Parent.message();
+
+
     }
 }
