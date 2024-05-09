@@ -1,6 +1,12 @@
 // package Abstract Class;
 
 public class Son extends Parent{
+
+    Son(int age)
+    {
+        // super(age);
+        this.age = age;
+    }
     
     @Override
     void career()
