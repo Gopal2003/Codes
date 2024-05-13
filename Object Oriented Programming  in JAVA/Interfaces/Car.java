@@ -1,4 +1,4 @@
-public class Car implements Engine,Brake{
+public class Car implements Engine,Brake,Media{
 
     int a = 19;
     @Override

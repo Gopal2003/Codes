@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
+        /* 
         Car c = new Car();
         c.start();
         c.stop();
@@ -7,8 +8,18 @@ public class Main {
         System.out.println(Brake.money);
 
         Engine c1 = new Car();
-        //System.out.println(c1.a);//! error as we can only access the variables which are of type engine...
+        System.out.println(c1.a);//! error as we can only access the variables which are of type engine...
         System.out.println(c1.money);
+        */
+
+        // Car c = new Car();
+            
+        // c.start();
+        // c.start();
+        
+        Music m = new Music();
+        m.start();
+        m.stop();
 
         
     }
