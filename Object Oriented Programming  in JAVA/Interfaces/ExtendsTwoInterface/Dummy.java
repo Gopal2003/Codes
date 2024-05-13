@@ -3,5 +3,8 @@ public class Dummy {
         Main m = new Main();
         m.funA();
         m.funB();
+
+        m.defaultFunc();
+        A.staticMethod();
     }
 }
