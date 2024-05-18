@@ -2,7 +2,7 @@ import java.util.*;
 
 public class CustomGenericList<T>{ // T is the type of the List- Integer,String...
 
-    private Object[] arr;
+    private Object[] arr; // Object because all the other classes inherit from object class. Even we can't initialize T []arr(T = Integer,String...). 
     private static int DEFAULT_SIZE = 10;
     private int size = 0;// also acting like the index of the array.
 
