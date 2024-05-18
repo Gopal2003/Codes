@@ -1,5 +1,6 @@
 import java.util.*;
 
+// !public class CustomGenericList<T extends String>{ We can restrict T to only having the type String. This is called Wildcards 
 public class CustomGenericList<T>{ // T is the type of the List- Integer,String...
 
     private Object[] arr; // Object because all the other classes inherit from object class. Even we can't initialize T []arr(T = Integer,String...). 
@@ -74,6 +75,7 @@ public class CustomGenericList<T>{ // T is the type of the List- Integer,String.
         list.add(6);
         list.add(7);
         // list.add("gopal"); // error as the Generic is Integer but we are adding String.
+        System.out.println(list);
 
         CustomGenericList<String> list2 = new CustomGenericList<>();
         list2.add("Gopal");
