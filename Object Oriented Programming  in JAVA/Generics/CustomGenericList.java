@@ -2,6 +2,12 @@ import java.util.*;
 
 // !public class CustomGenericList<T extends String>{ We can restrict T to only having the type String. This is called Wildcards. Either the type is String or the subclasses of the strings. 
 // * For example Number class. Integer,Float etc.. are the subclass of the Number class. We can check this by clicking on the Integer(ctrl + left click)    
+
+/*
+ * Real WildCard
+ * public getClass(List<? extends Number> List)
+ todo: Means we can pass Number as well as the subclass of the Number. If we only write List<Number>, then we can only pass Number type.
+ */
 public class CustomGenericList<T>{ // T is the type of the List- Integer,String...
 
     private Object[] arr; // Object because all the other classes inherit from object class. Even we can't initialize T []arr(T = Integer,String...). 
