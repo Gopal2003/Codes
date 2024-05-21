@@ -1,10 +1,19 @@
-public class Execp1{
+public class Excep1{
     public static void main(String[] args) {
         int a = 5;
         int b = 1;
         try{
-            int c = divide(a, b);
-            throw new Exception("Just for fun"); // Example to execute the Exeception e catch block.
+            String name = "Gopal";
+            // int c = divide(a, b);
+            // throw new Exception("Just for fun"); // Example to execute the Exeception e catch block.
+            if(name.equals("Gopal"))
+            {
+                throw new MyException("The name is gopal");
+            }
+        }
+        catch(MyException e)
+        {
+            System.out.println(e.getMessage());
         }
         catch(ArithmeticException e)
         {
