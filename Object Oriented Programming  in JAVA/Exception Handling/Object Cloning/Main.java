@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Main {
 
@@ -8,6 +9,13 @@ public class Main {
         //! Instead, we can use the inbuilt method of clone provided by object class.
 
         Human twin = (Human)h1.clone();
-        System.out.println(twin.age);
+        System.out.println(twin.name);
+        System.out.println(Arrays.toString(twin.arr));
+        System.out.println(Arrays.toString(h1.arr));
+        
+        twin.arr[0] = 100;
+        System.out.println(Arrays.toString(twin.arr));
+        System.out.println(Arrays.toString(h1.arr));
+
     }
 }
