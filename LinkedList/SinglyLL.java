@@ -8,6 +8,7 @@ public class SinglyLL{
         this.size = 0;
     }
 
+    //! O(1).
     public void insertFirst(int val)
     {
         Node node = new Node(val);
@@ -21,6 +22,7 @@ public class SinglyLL{
         size = size + 1;
     }
 
+    //! O(1).
     public void insertLast(int val)
     {
         if(tail == null)
@@ -36,6 +38,8 @@ public class SinglyLL{
         size = size + 1;
     }
 
+
+    //! O(n) wrost case.
     public void insert(int val,int index)
     {
         if(index == 0)
@@ -64,6 +68,7 @@ public class SinglyLL{
         
     }
 
+    //! O(1)
     public int deleteFirst()
     {
         int removedVal = head.value;
@@ -78,6 +83,7 @@ public class SinglyLL{
         return removedVal;
     }
 
+    //! O(n)
     public int deleteLast()
     {
 
@@ -87,17 +93,40 @@ public class SinglyLL{
         }
         int removedVal = tail.value;
         
-        Node secondLast = get(size - 1);
+        Node secondLast = get(size - 2);
         tail = secondLast;
         tail.next = null;
+        size = size - 1;
 
         return removedVal;
     }
 
+    //! O(n)
+    public int deleteAtIndex(int index)
+    {
+        if(index == 0)
+        {
+            return deleteFirst();
+        }
+        else if(index == size - 1)
+        {
+            return deleteLast();
+        }
+
+        Node curr = get(index - 1);
+
+        int removedVal = curr.next.value;
+        curr.next = curr.next.next;
+        size = size - 1;
+        
+        return removedVal;
+    }
+
+    //! O(n)- wrost case.
     public Node get(int index)
     {
         Node curr = head;
-        while(curr.next != tail)
+        for(int i = 0; i < index; i++)
         {
             curr = curr.next;
         }
@@ -105,6 +134,25 @@ public class SinglyLL{
         return curr;
     }
 
+    //! O(n)
+    public Node find(int value)
+    {
+        Node node = head;
+        while(node != null)
+        {
+            if(node.value == value)
+            {
+                return node;
+            }
+
+            node = node.next;
+        }
+
+        return null;
+    }
+
+
+    //! O(n).
     public void display()
     {
         Node temp = head;

@@ -7,12 +7,15 @@ public class Main {
         ll.insertFirst(3);
         ll.insertFirst(4);
         ll.insertFirst(5);
-        ll.insertLast(99);
-        ll.insert(6, 3);
+        // ll.insertLast(99);
+        // ll.insert(6, 3);
         ll.display();
-       System.out.println("Deleted value: " + ll.deleteFirst());
-       System.out.println("Deleted value: " + ll.deleteLast());
-       System.out.println("Deleted value: " + ll.deleteLast());
+    //    System.out.println("Deleted value: " + ll.deleteFirst());
+    //    System.out.println("Deleted value: " + ll.deleteLast());
+    //    System.out.println("Deleted value: " + ll.deleteLast());
+    //    ll.display();
+       
+       System.out.println("Deleted Value " + ll.deleteAtIndex(2));
        ll.display();
     }
 }
