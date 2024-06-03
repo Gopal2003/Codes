@@ -16,11 +16,11 @@ public class CustomStack{
 
     public void push(int value) throws StackException
     {
-        ptr++;
         if(isFull()) 
         {
             throw new StackException("Stack is full (OverFlow)");
         }
+        ptr++;
 
         data[ptr] = value;
     }
@@ -52,7 +52,7 @@ public class CustomStack{
 
     public boolean isFull()
     {
-        if(ptr == data.length)
+        if(ptr == data.length - 1)
         {
             return true;
         }
