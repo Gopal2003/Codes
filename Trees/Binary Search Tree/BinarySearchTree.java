@@ -13,7 +13,17 @@ import java.util.*;
         }
     }
 
-    private Node root;
+    public int height(Node node)
+    {
+        if(node == null)
+        {
+            return -1;
+        }
+
+        return node.height;
+    }
+
+    public Node root;
 
     public void insert(int value)
     {
@@ -37,8 +47,31 @@ import java.util.*;
         {
             node.right = insert(value, node.right);
         }
-    node.height = (node.left != null && node.right != null) ? Math.max(node.left.height,node.right.height) + 1 : (node.left != null && node.right == null) ? node.left.height + 1 : (node.left == null && node.right != null) ? node.right.height + 1: 0;
+       //node.height = (node.left != null && node.right != null) ? Math.max(node.left.height,node.right.height) + 1 : (node.left != null && node.right == null) ? node.left.height + 1 : (node.left == null && node.right != null) ? node.right.height + 1: 0;
+        node.height = Math.max(height(node.left),height(node.right)) + 1;
         return node;
+    }
+
+    public void sortedArrayInsert(int[] arr)
+    {
+        int start = 0,end = arr.length - 1;
+        // System.out.println(end);
+        sortedArrayInsert(arr,start,end);
+    }
+
+    public void sortedArrayInsert(int arr[],int start,int end)
+    {
+        if(start > end)
+        {
+            return;
+        }
+
+        int mid = start + (end - start) / 2;
+
+        insert(arr[mid]);
+
+        sortedArrayInsert(arr,start,mid - 1);
+        sortedArrayInsert(arr,mid + 1,end);
     }
 
     public void prettyDisplay()
@@ -59,10 +92,10 @@ import java.util.*;
         {
             for(int i = 0; i < level - 1; i++)
             {
-                System.out.print("|\t    ");
+                System.out.print("|\t   ");
             }
     
-            System.out.println("|--------> " + node.value);
+            System.out.println("|-------->" + node.value);
         }
         else
         {
