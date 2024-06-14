@@ -55,22 +55,24 @@ public class AVL{
 
     public Node rotate(Node node)
     {
+        //Handlling the Left-Unbalanced Sub-Tree.
         //left Heavy.
         if(node.left.height - node.right.height > 1)
         {
             //left left case
             if(node.left.left.height - node.left.right.height > 0)
             {
-                // return rightRotate(node);
+                return rightRotate(node);
             }
 
             if(node.left.left.height - node.left.right.height < 0)
             {
-                // node.left = leftRotate(node.left);
-                //return rightRotate(node);
+                node.left = leftRotate(node.left);
+                return rightRotate(node);
             }
         }
 
+        //Handling the Right Unbalance Sub-Tree.
         if(node.left.height - node.right.height < - 1)
         {
             //Right Heavy
@@ -78,25 +80,43 @@ public class AVL{
             //Right-Right Case
             if(node.right.right.height - node.right.left.height > 0)
             {
-                // return leftRotate(node);
+                return leftRotate(node);
             }
 
             if(node.right.right.height - node.right.left.height < 0)
             {
-                // node.right = rightRotate(node.right);
-                // return leftRotate(node);
+                node.right = rightRotate(node.right);
+                return leftRotate(node);
             }
         }
+        return node;
     }
 
-    public Node rightRotate(Node node)
+    public Node rightRotate(Node p)
     {
+        /* 
         Node temp = node.left.right;
         node.left.right = node;
         node = node.left;
         node.right.left = temp;
 
+        node.right.height = Math.max(node.left.height,node.right.height) + 1;
+        node.height = Math.max( node.left.height , node.right.height) + 1;
         return node;
+        */
+
+        Node c = p.left;
+        Node t = c.left;
+
+        c.right = p;
+        p.left = t;
+
+        p.height = Math.max(p.left.height,p.right.height);
+        c.height = Math.max(c.left.height,c.right.height);
+
+        return c;
+
+
     }
 
     public Node leftRotate(Node node)
