@@ -12,16 +12,16 @@ public class AVL{
             this.value = value;
         }
     }
-    public int getHeight()
+    public int height()
     {
-        return getheight(root);
+        return height(root);
     }
 
-    public int getheight(Node node)
+    public int height(Node node)
     {
         if(node == null)
         {
-            return 0;
+            return -1;
         }
 
         return node.height;
@@ -49,7 +49,7 @@ public class AVL{
             node.right = populate(node.right,value);
         }
 
-        node.height = Math.max(getheight(node.left),getheight(node.right)) + 1;
+        node.height = Math.max(height(node.left),height(node.right)) + 1;
         return rotate(node);
     }
 
@@ -57,15 +57,15 @@ public class AVL{
     {
         //Handlling the Left-Unbalanced Sub-Tree.
         //left Heavy.
-        if(node.left.height - node.right.height > 1)
+        if(height(node.left) - height(node.right) > 1)
         {
             //left left case
-            if(node.left.left.height - node.left.right.height > 0)
+            if(height(node.left.left) - height(node.left.right) > 0)
             {
                 return rightRotate(node);
             }
 
-            if(node.left.left.height - node.left.right.height < 0)
+            if(height(node.left.left) - height(node.left.right) < 0)
             {
                 node.left = leftRotate(node.left);
                 return rightRotate(node);
@@ -73,17 +73,17 @@ public class AVL{
         }
 
         //Handling the Right Unbalance Sub-Tree.
-        if(node.left.height - node.right.height < - 1)
+        if(height(node.left) - height(node.right) < - 1)
         {
             //Right Heavy
 
             //Right-Right Case
-            if(node.right.right.height - node.right.left.height > 0)
+            if(height(node.right.right) - height(node.right.left) > 0)
             {
                 return leftRotate(node);
             }
 
-            if(node.right.right.height - node.right.left.height < 0)
+            if(height(node.right.right) - height(node.right.left) < 0)
             {
                 node.right = rightRotate(node.right);
                 return leftRotate(node);
@@ -100,33 +100,45 @@ public class AVL{
         node = node.left;
         node.right.left = temp;
 
-        node.right.height = Math.max(node.left.height,node.right.height) + 1;
+        node.right.height = Math.max(node.right.left.height,node.right.right.height) + 1;
         node.height = Math.max( node.left.height , node.right.height) + 1;
         return node;
         */
 
         Node c = p.left;
-        Node t = c.left;
+        Node t = c.right;
 
         c.right = p;
         p.left = t;
 
-        p.height = Math.max(p.left.height,p.right.height);
-        c.height = Math.max(c.left.height,c.right.height);
+        p.height = Math.max(height(p.left),height(p.right)) + 1;
+        c.height = Math.max(height(c.left),height(c.right)) + 1;
 
         return c;
 
-
     }
 
-    public Node leftRotate(Node node)
+    public Node leftRotate(Node c)
     {
+        /* 
         Node temp = node.right.left;
         node.right.left = node;
         node = node.right;
         node.left.right = temp;
 
         return node;
+        */
+
+        Node p = c.right;
+        Node t = p.left;
+
+        p.left = c;
+        c.right = t;
+
+        c.height = Math.max(height(c.left),height(c.right)) + 1;
+        p.height = Math.max(height(p.left),height(p.right)) + 1;
+
+        return p;
     }
 
     public void prettyDisplay()
