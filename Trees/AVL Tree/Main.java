@@ -18,12 +18,13 @@ public class Main {
             
 
         //Internrionally adding the nodes in ascending order in order to activate the self-balancing property of AVL tree;
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < 20; i++)
         {
             avL.populate(i);
         }
 
         avL.prettyDisplay();
+        System.out.println();
         System.out.println(avL.height());
         // System.out.println(avL.getHeight());
     }

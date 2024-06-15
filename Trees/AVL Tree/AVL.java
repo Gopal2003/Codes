@@ -36,7 +36,8 @@ public class AVL{
     {
         if(node == null)
         {
-            return new Node(value);
+            node = new Node(value);
+            return node;
         }
 
         if(value < node.value)
@@ -78,12 +79,12 @@ public class AVL{
             //Right Heavy
 
             //Right-Right Case
-            if(height(node.right.right) - height(node.right.left) > 0)
+            if(height(node.right.left) - height(node.right.right) < 0)
             {
                 return leftRotate(node);
             }
 
-            if(height(node.right.right) - height(node.right.left) < 0)
+            if(height(node.right.left) - height(node.right.right) > 0)
             {
                 node.right = rightRotate(node.right);
                 return leftRotate(node);
@@ -111,8 +112,8 @@ public class AVL{
         c.right = p;
         p.left = t;
 
-        p.height = Math.max(height(p.left),height(p.right)) + 1;
-        c.height = Math.max(height(c.left),height(c.right)) + 1;
+        p.height = Math.max(height(p.left),height(p.right) + 1);
+        c.height = Math.max(height(c.left),height(c.right) + 1);
 
         return c;
 
@@ -134,9 +135,9 @@ public class AVL{
 
         p.left = c;
         c.right = t;
-
-        c.height = Math.max(height(c.left),height(c.right)) + 1;
-        p.height = Math.max(height(p.left),height(p.right)) + 1;
+        
+        c.height = Math.max(height(c.left),height(c.right) + 1);
+        p.height = Math.max(height(p.left),height(p.right) + 1);
 
         return p;
     }
