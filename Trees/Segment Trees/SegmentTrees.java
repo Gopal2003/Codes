@@ -49,8 +49,48 @@ public class SegmentTrees{
         node.data = node.left.data + node.right.data;
 
         return node;
+    }
+
+    public void display()
+    {
+        display(root);
+    }
+
+    public void display(Node node)
+    {
+        String str = "";
         
     }
+
+    public int query(int qsi,int qei) // qsi - query starting index,qei - query ending index.
+    {
+        return query(root,qsi,qei);
+    }
+
+    // To get the answer for the query. like get the sum for certain range in an array.
+    public int query(Node node,int qsi,int qei)
+    {
+        if(node.startInterval >= qsi && node.endInterval <= qei)
+        {
+            //node is lying completeing inside the query.
+            return node.data;
+        }
+        else if(node.startInterval > qei || node.endInterval < qsi)
+        {
+            //Completely Outside.
+            return 0;
+        }
+        else
+        {
+            return(query(node.left, qsi,qei) + query(node.right,qsi,qei));
+        }
+    }
+
+    public void update(int index,int value)
+    {
+        
+    }
+    
 
 
 }
