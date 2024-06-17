@@ -1,11 +1,11 @@
 import java.util.Stack;
-import java.util.ArrayList;
+// import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StockSpanProb {
     public static void main(String[] args) {
         Stack<Integer> st = new Stack<>();
-        ArrayList<Integer> aL = new ArrayList<>();
+        // ArrayList<Integer> aL = new ArrayList<>();
 
         int arr[] = new int[]{100,80,60,70,60,75,85};
         int length = arr.length;
