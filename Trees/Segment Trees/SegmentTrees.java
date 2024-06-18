@@ -60,6 +60,43 @@ public class SegmentTrees{
     {
         String str = "";
         
+        //For left Node.
+        if(node.left != null)
+        {
+            str = str + "Interval = [ " + node.left.startInterval + " - " + node.left.endInterval + " ] and data: " + node.left.data + " => ";
+        }
+        else
+        {
+            str = str + "No left Child";
+        }
+
+        //For Current Node
+
+        str = str + "Interval = [ " + node.startInterval + " - " + node.endInterval + " ] and data: " + node.data + " <= "; 
+
+        //For right node.
+        if(node.right != null)
+        {
+            str = str + "Interval = [" + node.right.startInterval + " - " + node.right.endInterval + "] and data: " + node.right.data ;
+        }
+        else
+        {
+            str = str + " No right Child ";
+        }
+
+
+        System.out.println(str);
+
+        //Call Recursion
+        if(node.left != null)
+        {
+            display(node.left);
+        }
+
+        if(node.right != null)
+        {
+            display(node.right);
+        }
     }
 
     public int query(int qsi,int qei) // qsi - query starting index,qei - query ending index.
@@ -88,7 +125,36 @@ public class SegmentTrees{
 
     public void update(int index,int value)
     {
-        
+        root.data = update(root,index,value);
+    }
+
+    //Update the segment tree. Logic Written In notes or you can built by observing the Tree of Segment Tree.
+    public int update(Node node,int index,int value)
+    {
+        if(index >= node.startInterval && index <= node.endInterval)
+        {
+            if(index == node.startInterval && index == node.endInterval)
+            {
+                node.data = value;
+                return node.data;
+            }
+            // else if(node.startInterval == node.endInterval)
+            // {
+            //     return node.data;
+            // }
+            else
+            {
+                int leftData = update(node.left, index, value);
+                int rightData = update(node.right,index,value);
+
+                node.data = leftData + rightData;
+                return node.data;
+            }
+        }
+        else
+        {
+            return node.data;
+        }
     }
     
 
