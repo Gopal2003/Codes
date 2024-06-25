@@ -25,7 +25,7 @@ public class InputStream {
         }
         */
 
-        try(BufferedReader bR = new BufferedReader(new InputStreamReader(System.in)))
+        try(BufferedReader bR = new BufferedReader(new InputStreamReader(System.in))) // Use this to take fast input in coding rounds.
         {
             System.out.println("You Typed: " + bR.readLine());
         }
