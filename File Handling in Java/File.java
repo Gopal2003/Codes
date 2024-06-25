@@ -1,4 +1,5 @@
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class File
@@ -19,6 +20,23 @@ public class File
         {
             System.out.println(e.getMessage());
         }
+
+        try(FileWriter fr = new FileWriter("newFile.txt"))
+        {
+            fr.append("Gopal Agarwal");
+            
+            fr.append('a');
+            fr.append('p');
+            fr.append('p');
+            fr.append('l');
+            fr.append('e');
+
+        }
+        catch(IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
 
     }
 }
