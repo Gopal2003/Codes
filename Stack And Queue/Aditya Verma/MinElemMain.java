@@ -5,6 +5,8 @@ public class MinElemMain {
         
         MinElem st = new MinElem();
 
+        System.out.println(st.getMinElement());
+        st.popElem();
         st.pushELem(18);
         st.pushELem(19);
         st.pushELem(14);
