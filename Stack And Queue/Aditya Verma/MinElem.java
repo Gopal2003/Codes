@@ -64,15 +64,22 @@ public class MinElem {
 
         public void popElem()
         {
-            int peekValue = MainSt.peek();
-            if(peekValue > minElem)
+            if(MainSt.isEmpty())
             {
-                MainSt.pop();
+                System.out.println("The Stack is Empty!!");
             }
-            else 
+            else
             {
-                int poppedValue = MainSt.pop();
-                minElem = 2 * minElem - poppedValue;
+                int peekValue = MainSt.peek();
+                if(peekValue > minElem)
+                {
+                    MainSt.pop();
+                }
+                else 
+                {
+                    int poppedValue = MainSt.pop();
+                    minElem = 2 * minElem - poppedValue;
+                }
             }
         }
 
@@ -83,6 +90,11 @@ public class MinElem {
 
         public int getPeekValue()
         {
+            if(MainSt.isEmpty())
+            {
+                System.out.println("Stack is Empty!!");
+                return -1;
+            }
             int peekValue = MainSt.peek();
             if(peekValue < minElem) // If the peek element of stack is a flag, then return minElem. 
             {

@@ -22,6 +22,13 @@ public class MinElemMain {
         System.out.println(st.getMinElement());
         */
 
+        //Testing the Edge Cases.
+        System.out.println(st.getMinElement());
+        st.popElem();
+        System.out.println(st.getPeekValue());
+
+
+
         st.pushElem(5);
         System.out.println(st.getMinElement());
 
