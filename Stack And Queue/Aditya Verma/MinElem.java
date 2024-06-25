@@ -1,39 +1,35 @@
 import java.util.Stack;
 
 public class MinElem {
-    public static void main(String[] args) {
-        Stack<Integer> MainSt = new Stack<>();
-        Stack<Integer> Helper = new Stack<>();
-        int minElem = -1;
-        MainSt.push(18);
-        minElem = getMinElement(MainSt, Helper);
-        MainSt.push(19);
-        minElem = getMinElement(MainSt, Helper);
-        MainSt.push(20);
-        minElem = getMinElement(MainSt, Helper);
-        MainSt.push(15);
-        minElem = getMinElement(MainSt, Helper);
-        MainSt.push(16);
-        minElem = getMinElement(MainSt, Helper);
 
-        System.out.println("Minimum Element In Stack Is : " + minElem);
-    }
+    Stack<Integer> MainSt = new Stack<>();
+    Stack<Integer> helper = new Stack<>();
 
-    public static int getMinElement(Stack<Integer> MainSt,Stack<Integer> helper)
+    public void pushELem(int value)
     {
+        MainSt.push(value);
         int minVal = -1;
 
-        if(helper.isEmpty() && !MainSt.isEmpty())
-        {
+        if (helper.isEmpty() && !MainSt.isEmpty()) {
+            minVal = MainSt.peek();
+            helper.push(minVal);
+        } else if (MainSt.peek() < helper.peek()) {
             minVal = MainSt.peek();
             helper.push(minVal);
         }
-        else if(MainSt.peek() < helper.peek())
-        {
-            minVal = MainSt.peek();
-            helper.push(minVal);
-        }
+    }
 
+    public int getMinElement() {
         return helper.peek();
+    }
+
+    public void popElem() {
+
+        if (MainSt.peek() == helper.peek()) {
+            MainSt.pop();
+            helper.pop();
+        } else {
+            MainSt.pop();
+        }
     }
 }
