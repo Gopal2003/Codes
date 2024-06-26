@@ -1,8 +1,9 @@
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.File;
 
-public class File
+public class Filee
 {
     public static void main(String[] args)
     {
@@ -40,5 +41,14 @@ public class File
         }
 
 
+        //To create a file, use File class . createNewFile method.
+        try{
+            File fo = new File("New-File.txt");
+            fo.createNewFile();
+        }
+        catch(IOException e)
+        {
+            e.getMessage();
+        }
     }
 }
