@@ -21,9 +21,9 @@ public class File
         //     System.out.println(e.getMessage());
         // }
 
-        try(FileWriter fr = new FileWriter("newFile.txt"))
+        try(FileWriter fr = new FileWriter("newFile.txt",true))
         {
-            fr.append("Gopal Agarwal");
+            fr.write("Gopal Agarwal");
 
             // fr.append('a');
             // fr.append('p');
@@ -31,7 +31,7 @@ public class File
             // fr.append('l');
             // fr.append('e');
 
-            fr.write("This is test");
+            // fr.write("This is test");
 
         }
         catch(IOException e)
